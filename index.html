@@ -197,6 +197,19 @@
             color: var(--accent) !important;
             font-size: 1.1rem;
         }
+        
+        /* ESTILO DE LA NOTA CORREGIDO */
+        .budget-note {
+            padding: 15px 20px;
+            background-color: #fcfcfc;
+            color: var(--text-main); /* Color más oscuro para mejor lectura */
+            font-size: 0.95rem;      /* Tamaño más grande */
+            font-weight: 500;
+            text-align: center;
+            border-top: 2px solid #eee;
+            font-style: italic;
+            opacity: 1;              /* Sin transparencia */
+        }
 
         /* --- CARDS DÍAS --- */
         .day-card {
@@ -311,7 +324,7 @@
         </svg>
         
         <h1>Escapada Febrero 2026</h1>
-        <div class="subtitle">3 Destinos | 5 Amigos | Presupuesto Ajustado</div>
+        <div class="subtitle">2 Destinos | 4 Amigos | Presupuesto Ajustado</div>
     </header>
 
     <div class="nav-container">
@@ -322,10 +335,6 @@
         <button class="nav-btn" onclick="showTrip('malaga')">
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             Málaga
-        </button>
-        <button class="nav-btn" onclick="showTrip('alicante')">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Alicante
         </button>
     </div>
 
@@ -349,41 +358,44 @@
                     <tbody>
                         <tr>
                             <td>DINERO A PONER</td>
-                            <td>1.000,00 €</td>
+                            <td>800,00 €</td>
                             <td>200,00 €</td>
                         </tr>
                         <tr>
                             <td>ALOJAMIENTO</td>
-                            <td>330,00 €</td>
-                            <td>66,00 €</td>
+                            <td>300,00 €</td>
+                            <td>75,00 €</td>
                         </tr>
                         <tr>
                             <td>TRANSPORTE (380km ida/vuelta)</td>
                             <td>61,00 €</td>
-                            <td>13,00 €</td>
+                            <td>16,00 €</td>
                         </tr>
                         <tr>
                             <td>COMIDA (4 días)</td>
-                            <td>450,00 €</td>
-                            <td>90,00 €</td>
+                            <td>370,00 €</td>
+                            <td>92,00 €</td>
                         </tr>
                         <tr>
                             <td>GASTOS TONTOS</td>
-                            <td>75,00 €</td>
+                            <td>60,00 €</td>
                             <td>15,00 €</td>
                         </tr>
                         <tr>
                             <td>RESERVA EMERGENCIA</td>
-                            <td>50,00 €</td>
+                            <td>40,00 €</td>
                             <td>10,00 €</td>
                         </tr>
                         <tr>
                             <td><strong>TOTAL ESTIMADO</strong></td>
-                            <td class="budget-total"><strong>970,00 €</strong></td>
-                            <td class="budget-total"><strong>194,00 €</strong></td>
+                            <td class="budget-total"><strong>840,00 €</strong></td>
+                            <td class="budget-total"><strong>210,00 €</strong></td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="budget-note">
+                    TODOS LOS COSTES ESTÁN REDONDEADOS A CANTIDADES MÁS PRESENTABLES PARA NO PONER AQUÍ LOS CÉNTIMOS EXACTOS DE CADA REPARTO
+                </div>
             </div>
 
             <div class="tips-box">
@@ -461,41 +473,44 @@
                     <tbody>
                         <tr>
                             <td>DINERO A PONER</td>
-                            <td>1.000,00 €</td>
+                            <td>800,00 €</td>
                             <td>200,00 €</td>
                         </tr>
                         <tr>
                             <td>ALOJAMIENTO</td>
-                            <td>370,00 €</td>
-                            <td>74,00 €</td>
+                            <td>300,00 €</td>
+                            <td>75,00 €</td>
                         </tr>
                         <tr>
                             <td>TRANSPORTE (230km ida/vuelta)</td>
                             <td>40,00 €</td>
-                            <td>8,00 €</td>
+                            <td>10,00 €</td>
                         </tr>
                         <tr>
                             <td>COMIDA (4 días)</td>
-                            <td>450,00 €</td>
-                            <td>90,00 €</td>
+                            <td>370,00 €</td>
+                            <td>92,00 €</td>
                         </tr>
                         <tr>
                             <td>GASTOS TONTOS</td>
-                            <td>75,00 €</td>
+                            <td>60,00 €</td>
                             <td>15,00 €</td>
                         </tr>
                         <tr>
                             <td>RESERVA EMERGENCIA</td>
-                            <td>50,00 €</td>
+                            <td>40,00 €</td>
                             <td>10,00 €</td>
                         </tr>
                         <tr>
                             <td><strong>TOTAL ESTIMADO</strong></td>
-                            <td class="budget-total"><strong>985,00 €</strong></td>
-                            <td class="budget-total"><strong>197,00 €</strong></td>
+                            <td class="budget-total"><strong>840,00 €</strong></td>
+                            <td class="budget-total"><strong>210,00 €</strong></td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="budget-note">
+                    TODOS LOS COSTES ESTÁN REDONDEADOS A CANTIDADES MÁS PRESENTABLES PARA NO PONER AQUÍ LOS CÉNTIMOS EXACTOS DE CADA REPARTO
+                </div>
             </div>
 
             <div class="tips-box">
@@ -551,117 +566,6 @@
                 <p><strong>El Campero:</strong> Bocadillo redondo gigante (Mendivil/Valderrama). 5-6€.</p>
                 <p><strong>Espetos:</strong> Sardinas a la brasa en Pedregalejo (3-5€).</p>
                 <p><strong>Pizza/Picnic:</strong> Pizza "Terra Mia" o picnic en el Parque.</p>
-            </div>
-        </div>
-
-        <div id="alicante" class="trip-section">
-            
-            <div class="budget-container">
-                <div class="budget-header">
-                    <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-                    PRESUPUESTO ESTIMADO ALICANTE
-                </div>
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th>CONCEPTO</th>
-                            <th>TOTAL</th>
-                            <th>POR PERSONA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>DINERO A PONER</td>
-                            <td>1.000,00 €</td>
-                            <td>200,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>ALOJAMIENTO (aprox)</td>
-                            <td>270,00 €</td>
-                            <td>55,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>TRANSPORTE (310km ida/vuelta)</td>
-                            <td>50,00 €</td>
-                            <td>10,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>COMIDA (4 días)</td>
-                            <td>450,00 €</td>
-                            <td>90,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>GASTOS TONTOS</td>
-                            <td>75,00 €</td>
-                            <td>15,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>RESERVA EMERGENCIA</td>
-                            <td>50,00 €</td>
-                            <td>10,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>TOTAL ESTIMADO</strong></td>
-                            <td class="budget-total"><strong>895,00 €</strong></td>
-                            <td class="budget-total"><strong>180,00 €</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="tips-box">
-                <h3>💡 Tips Ahorro Costa Blanca</h3>
-                <ul>
-                    <li><strong>Tren a Elche:</strong> Cercanías C-1 (barato y rápido).</li>
-                    <li><strong>Tardeo:</strong> Salir de fiesta a las 16:00 es más barato.</li>
-                    <li><strong>Comida:</strong> Menú del día entre semana para comer arroz.</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 1: Jueves 5 - Alicante Centro</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Mercado Central (tapas).</li>
-                    <li><strong>Tarde:</strong> Subida al <strong>Castillo Santa Bárbara</strong> andando (Barrio Santa Cruz/Ereta).</li>
-                    <li><strong>Extra añadido:</strong> <strong>Plaza de Gabriel Miró</strong> (muy romántica, árboles gigantes) y la <strong>Concatedral de San Nicolás</strong> (casco antiguo).</li>
-                    <li><strong>Noche:</strong> Barrio de Santa Cruz (fotos bonitas).</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 2: Viernes 6 - Elche Patrimonio</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Tren a Elx-Parc. <strong>Palmeral</strong> (Parque Municipal).</li>
-                    <li><strong>Mediodía:</strong> Basílica Santa María.</li>
-                    <li><strong>Extra añadido:</strong> <strong>Torre de la Calahorra</strong> (fortaleza almohade) y <strong>Baños Árabes</strong> (Convento de la Merced). Paseo por la ladera del río Vinalopó (arte urbano).</li>
-                    <li><strong>Regreso:</strong> Tren a Alicante.</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 3: Sábado 7 - Tardeo y Setas</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Explanada de España y Playa Postiguet.</li>
-                    <li><strong>Mediodía:</strong> Calle de las Setas.</li>
-                    <li><strong>Extra añadido:</strong> <strong>Plaza de los Luceros</strong> (fuente icónica) y paseo por <strong>Calle Maisonnave</strong> si queréis ver tiendas.</li>
-                    <li><strong>Tarde:</strong> <strong>Tardeo</strong> en calle Castaños (ambiente 100%).</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 4: Domingo 8 - Cultura Final</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Museos Gratis: MACA (Arte Contemp.) y MUBAG (Bellas Artes).</li>
-                    <li><strong>Extra añadido:</strong> <strong>Centro Cultural Las Cigarreras</strong>. Antigua fábrica de tabacos convertida en espacio cultural (suele ser gratis y muy alternativo).</li>
-                    <li><strong>Paseo:</strong> Parque de Canalejas (Ficus gigantes).</li>
-                </ul>
-            </div>
-
-            <div class="food-box">
-                <h3>🍽️ Dónde comer (Alicante/Elche)</h3>
-                <p><strong>D'Tablas:</strong> Tapas y cañas low cost (1€ - 1.50€). Zona Rambla.</p>
-                <p><strong>Arroz con Costra:</strong> Típico de Elche. Buscad menú del día.</p>
-                <p><strong>Toñas y Fartons:</strong> Bollería local barata.</p>
             </div>
         </div>
 
