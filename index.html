@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viaje Low Cost 2026</title>
+    <title>Viaje Córdoba 2026</title>
     <style>
         :root {
             /* Paleta Cálida / Mediterránea */
@@ -14,7 +14,6 @@
             --card-bg: #ffffff;
             --text-main: #264653; /* Azul oscuro casi negro */
             --text-light: #5f6c7b;
-            --table-header: #e9c46a;
         }
 
         body {
@@ -41,6 +40,7 @@
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+            margin-bottom: 40px;
         }
 
         header h1 {
@@ -69,146 +69,12 @@
             opacity: 0.2;
             fill: white;
         }
-        
-        /* --- NAVEGACIÓN --- */
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: -25px;
-            position: sticky;
-            top: 10px;
-            z-index: 100;
-            padding: 0 10px;
-        }
-
-        .nav-btn {
-            background: white;
-            color: var(--text-main);
-            border: none;
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--text-main);
-            transition: fill 0.3s;
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .nav-btn:hover svg {
-            fill: white;
-        }
-
-        .nav-btn.active {
-            background-color: var(--accent);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .nav-btn.active svg {
-            fill: white;
-        }
 
         /* --- CONTENIDO --- */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
             padding: 0 20px;
-        }
-
-        .trip-section {
-            display: none;
-            animation: slideUp 0.6s ease-out;
-        }
-
-        .trip-section.active {
-            display: block;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- TABLA PRESUPUESTO --- */
-        .budget-container {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            border: 2px solid var(--secondary);
-        }
-        
-        .budget-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 10px 20px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .budget-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .budget-table th {
-            text-align: left;
-            padding: 12px;
-            background-color: #fff8f0;
-            color: var(--primary);
-            border-bottom: 1px solid #eee;
-        }
-
-        .budget-table td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #f0f0f0;
-            color: var(--text-light);
-        }
-
-        .budget-table tr:last-child td {
-            border-bottom: none;
-            font-weight: bold;
-            color: var(--text-main);
-            background-color: #fcfcfc;
-        }
-
-        .budget-total {
-            color: var(--accent) !important;
-            font-size: 1.1rem;
-        }
-        
-        /* ESTILO DE LA NOTA CORREGIDO */
-        .budget-note {
-            padding: 15px 20px;
-            background-color: #fcfcfc;
-            color: var(--text-main); /* Color más oscuro para mejor lectura */
-            font-size: 0.95rem;      /* Tamaño más grande */
-            font-weight: 500;
-            text-align: center;
-            border-top: 2px solid #eee;
-            font-style: italic;
-            opacity: 1;              /* Sin transparencia */
         }
 
         /* --- CARDS DÍAS --- */
@@ -233,6 +99,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .day-card ul {
@@ -284,33 +152,40 @@
             margin-top: 0;
         }
 
-        .badge-free {
-            background-color: #d1fae5;
-            color: #065f46;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
+        /* Botón de Mapa dentro de las Cards */
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
             font-weight: bold;
-            vertical-align: middle;
-            margin-left: 5px;
-            border: 1px solid #34d399;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            width: fit-content;
+        }
+
+        .map-btn:hover {
+            background-color: #218c7e;
+        }
+
+        .map-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 600px) {
-            .nav-container {
-                flex-direction: column;
-                margin-top: -40px;
-            }
-            .nav-btn {
-                width: 100%;
-                justify-content: center;
-            }
             header {
-                padding-bottom: 3rem;
+                padding-bottom: 2rem;
             }
-            .budget-table {
-                font-size: 0.8rem;
+            .day-card h3 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -323,282 +198,87 @@
             <path d="M50 10 V20 M50 80 V90 M90 50 H80 M20 50 H10 M78 22 L71 29 M29 71 L22 78 M78 78 L71 71 M29 29 L22 22" stroke="white" stroke-width="2"/>
         </svg>
         
-        <h1>Escapada Febrero 2026</h1>
-        <div class="subtitle">2 Destinos | 4 Amigos | Presupuesto Ajustado</div>
+        <h1>Córdoba 2026</h1>
+        <div class="subtitle">5 al 8 Febrero | 4 Amigos | Presupuesto Estudiante</div>
     </header>
-
-    <div class="nav-container">
-        <button class="nav-btn active" onclick="showTrip('cordoba')">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Córdoba
-        </button>
-        <button class="nav-btn" onclick="showTrip('malaga')">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Málaga
-        </button>
-    </div>
 
     <div class="container">
 
-        <div id="cordoba" class="trip-section active">
-            
-            <div class="budget-container">
-                <div class="budget-header">
-                    <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-                    ESTIMACIÓN PRESUPUESTO CORDUBA
-                </div>
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th>CONCEPTO</th>
-                            <th>TOTAL</th>
-                            <th>POR PERSONA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>DINERO A PONER</td>
-                            <td>800,00 €</td>
-                            <td>200,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>ALOJAMIENTO</td>
-                            <td>300,00 €</td>
-                            <td>75,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>TRANSPORTE (380km ida/vuelta)</td>
-                            <td>61,00 €</td>
-                            <td>16,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>COMIDA (4 días)</td>
-                            <td>370,00 €</td>
-                            <td>92,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>GASTOS TONTOS</td>
-                            <td>60,00 €</td>
-                            <td>15,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>RESERVA EMERGENCIA</td>
-                            <td>40,00 €</td>
-                            <td>10,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>TOTAL ESTIMADO</strong></td>
-                            <td class="budget-total"><strong>840,00 €</strong></td>
-                            <td class="budget-total"><strong>210,00 €</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="budget-note">
-                    TODOS LOS COSTES ESTÁN REDONDEADOS A CANTIDADES MÁS PRESENTABLES PARA NO PONER AQUÍ LOS CÉNTIMOS EXACTOS DE CADA REPARTO
-                </div>
-            </div>
-
-            <div class="tips-box">
-                <h3>💡 Tips Ahorro Córdoba</h3>
-                <ul>
-                    <li><strong>Carné Joven:</strong> Descuento brutal en la Mezquita (de 13€ a 10€/7€).</li>
-                    <li><strong>Gratis UE:</strong> Sinagoga y Arqueológico gratis mostrando DNI.</li>
-                    <li><strong>Agua:</strong> Hay fuentes potables por el centro, llevad botella.</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 1: Jueves 5 - Aterrizaje y Laberinto</h3>
-                <ul>
-                    <li><strong>Tarde:</strong> Plaza de las Tendillas → Plaza de la Corredera (ambiente joven).</li>
-                    <li><strong>Visita:</strong> <strong>Templo Romano</strong>. Columnas iluminadas de noche (visible desde la calle).</li>
-                    <li><strong>Extra añadido:</strong> <strong>Cuesta del Bailío</strong>. Una escalinata preciosa llena de flores y una fuente al fondo. Justo arriba está la <strong>Plaza de Capuchinos</strong> con el Cristo de los Faroles (místico de noche).</li>
-                    <li><strong>Cena:</strong> Tabernas por Plaza del Potro.</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 2: Viernes 6 - La Joya y el Río</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> <strong>Patio de los Naranjos</strong> <span class="badge-free">Gratis</span>. Si el presupuesto da, entrad a la Mezquita.</li>
-                    <li><strong>Mediodía:</strong> Calleja de las Flores (foto obligatoria).</li>
-                    <li><strong>Extra añadido:</strong> <strong>Puerta del Puente</strong> y bajada a los Sotos de la Albolafia para ver los molinos árabes de cerca desde la orilla.</li>
-                    <li><strong>Tarde:</strong> Cruzar el Puente Romano y ver Torre de la Calahorra por fuera.</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 3: Sábado 7 - La Judería Profunda</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> <strong>Sinagoga</strong> <span class="badge-free">Gratis UE</span> y Zoco Municipal (artesanía).</li>
-                    <li><strong>Extra añadido:</strong> <strong>Casa de Sefarad</strong> (ver fachada) y la estatua de Maimónides. Plaza de Jerónimo Páez (muy tranquila).</li>
-                    <li><strong>Tarde:</strong> <strong>Museo Arqueológico</strong> <span class="badge-free">Gratis UE</span>. Teatro romano en el sótano.</li>
-                    <li><strong>Noche:</strong> Puente Romano iluminado (siempre hay música en vivo espontánea).</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 4: Domingo 8 - Patios y Despedida</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Barrio de <strong>San Basilio</strong>. Ver patios desde fuera y la escultura del abuelo regando.</li>
-                    <li><strong>Visita:</strong> <strong>Caballerizas Reales</strong> (a veces acceso libre a entrenamientos).</li>
-                    <li><strong>Extra añadido:</strong> Paseo por los <strong>Jardines de la Victoria</strong> y vistazo al Mercado Victoria (estructura de hierro del s.XIX).</li>
-                </ul>
-            </div>
-
-            <div class="food-box">
-                <h3>🍽️ Dónde comer (Córdoba)</h3>
-                <p><strong>Tortilla Bar Santos:</strong> Cuñas gigantes a 2.50€ para llevar y comer frente a la Mezquita.</p>
-                <p><strong>Berenjenas con Miel:</strong> Imprescindibles. Buscad en zona Corredera.</p>
-                <p><strong>Flamenquín:</strong> Rulo de carne XXL, ideal para compartir entre dos.</p>
-            </div>
+        <div class="tips-box">
+            <h3>💡 Tips Estudiante</h3>
+            <ul>
+                <li><strong>CARNET UNIVERSITARIO:</strong> ¡Obligatorio! Sin él no entraremos en precio en la Mezquita ni en el Alcázar.</li>
+                <li><strong>Agua:</strong> Botellas rellenables, el agua de Córdoba es buena.</li>
+                <li><strong>Reserva Online:</strong> Comprar Mezquita con antelación (Tarifa reducida).</li>
+            </ul>
         </div>
 
+        <div class="day-card">
+            <h3>
+                <span>Jueves 5: Aterrizaje y Romano</span>
+            </h3>
+            <ul>
+                <li><strong>14:00:</strong> Llegada, check-in y comida casera en el piso.</li>
+                <li><strong>16:00 (Ruta):</strong> Paseo por la Ribera. Cruzar el <strong>Puente Romano</strong> y ver la Torre de la Calahorra.</li>
+                <li><strong>18:00:</strong> Perderse por la Judería y buscar la <strong>Calleja de las Flores</strong>.</li>
+                <li><strong>19:30:</strong> Visita a la <strong>Sinagoga</strong> (Gratis UE).</li>
+                <li><strong>Noche:</strong> Cena en alojamiento y paseo tranquilo.</li>
+            </ul>
+            <a href="https://www.google.com/maps/dir/Plaza+de+las+Tendillas,+C%C3%B3rdoba/Calleja+de+las+Flores,+1,+Centro,+14003+C%C3%B3rdoba/Puente+Romano+de+C%C3%B3rdoba,+Av.+del+Alc%C3%A1zar,+s%2Fn,+Sur,+14009+C%C3%B3rdoba/Torre+de+la+Calahorra,+Puente+Romano,+s%2Fn,+Sur,+14009+C%C3%B3rdoba/@37.8778601,-4.7820614,16z/data=!3m1!4b1!4m26!4m25!1m5!1m1!1s0xd6d20632a59a66b:0x4ad5d14ed4a3b610!2m2!1d-4.779434!2d37.884568!1m5!1m1!1s0xd6d209d356471b9:0xc37d8e6365d866f1!2m2!1d-4.7797705!2d37.8805391!1m5!1m1!1s0xd6d209ca1831165:0x367332ccf26d271!2m2!1d-4.7773229!2d37.8756916!1m5!1m1!1s0xd6d2082f1b9086f:0x3e3c20c82dd92929!2m2!1d-4.776634!2d37.8741366!3e2?entry=ttu&g_ep=EgoyMDI1MDExNS.MD--&authuser=0" target="_blank" class="map-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Ver Ruta Jueves
+            </a>
+        </div>
 
-        <div id="malaga" class="trip-section">
-            
-            <div class="budget-container">
-                <div class="budget-header">
-                    <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-                    PRESUPUESTO ESTIMADO MÁGALA
-                </div>
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th>CONCEPTO</th>
-                            <th>TOTAL</th>
-                            <th>POR PERSONA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>DINERO A PONER</td>
-                            <td>800,00 €</td>
-                            <td>200,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>ALOJAMIENTO</td>
-                            <td>300,00 €</td>
-                            <td>75,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>TRANSPORTE (230km ida/vuelta)</td>
-                            <td>40,00 €</td>
-                            <td>10,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>COMIDA (4 días)</td>
-                            <td>370,00 €</td>
-                            <td>92,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>GASTOS TONTOS</td>
-                            <td>60,00 €</td>
-                            <td>15,00 €</td>
-                        </tr>
-                        <tr>
-                            <td>RESERVA EMERGENCIA</td>
-                            <td>40,00 €</td>
-                            <td>10,00 €</td>
-                        </tr>
-                        <tr>
-                            <td><strong>TOTAL ESTIMADO</strong></td>
-                            <td class="budget-total"><strong>840,00 €</strong></td>
-                            <td class="budget-total"><strong>210,00 €</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="budget-note">
-                    TODOS LOS COSTES ESTÁN REDONDEADOS A CANTIDADES MÁS PRESENTABLES PARA NO PONER AQUÍ LOS CÉNTIMOS EXACTOS DE CADA REPARTO
-                </div>
-            </div>
+        <div class="day-card">
+            <h3>
+                <span>Viernes 6: El "Gran Tour"</span>
+            </h3>
+            <ul>
+                <li><strong>10:00:</strong> Desayuno fuera (~4€).</li>
+                <li><strong>11:30:</strong> <strong>Mezquita-Catedral</strong> (Tarifa Estudiante). 2 horas aprox.</li>
+                <li><strong>14:30:</strong> Comida fuerte en zona Ribera/Centro (Salmorejo y Flamenquín).</li>
+                <li><strong>17:00:</strong> <strong>Alcázar de los Reyes Cristianos</strong>. Jardines y murallas.</li>
+                <li><strong>Atardecer:</strong> Plaza de la Corredera.</li>
+            </ul>
+            <a href="https://www.google.com/maps/dir/Cafeteria+Don+Pepe,+Calle+Diego+de+Le%C3%B3n,+6,+C%C3%B3rdoba/Sinagoga+de+C%C3%B3rdoba,+C.+Jud%C3%ADos,+20,+Centro,+14004+C%C3%B3rdoba/Mezquita-Catedral+de+C%C3%B3rdoba,+C.+Cardenal+Herrero,+%C2%BA+1,+Centro,+14003+C%C3%B3rdoba/Moriles+Ribera,+P.%C2%BA+de+la+Ribera,+6,+Centro,+14002+C%C3%B3rdoba/Alc%C3%A1zar+de+los+Reyes+Cristianos,+Calle+Caballerizas+Reales,+s%2Fn,+C%C3%B3rdoba/@37.8795054,-4.7836814,16z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0xd6d1f7ccee015f9:0x8db02c414061a0b2!2m2!1d-4.7797771!2d37.8845028!1m5!1m1!1s0xd6d209dbee51d17:0x5b6c58ca811d16e4!2m2!1d-4.783262!2d37.8795115!1m5!1m1!1s0xd6d2082ce1a16cf:0xeb4353f81e6f636!2m2!1d-4.7795368!2d37.8789061!1m5!1m1!1s0xd6d215e4a58aa93:0xf108222731cc38c8!2m2!1d-4.7745812!2d37.8789617!1m5!1m1!1s0xd6d209cc1b08419:0x2c52d160f15712f5!2m2!1d-4.780962!2d37.8763567!3e2?entry=ttu&g_ep=EgoyMDI1MDExNS.MD--&authuser=0" target="_blank" class="map-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Ver Ruta Viernes
+            </a>
+        </div>
 
-            <div class="tips-box">
-                <h3>💡 Tips Ahorro Málaga</h3>
-                <ul>
-                    <li><strong>Domingos Gratis:</strong> Alcazaba (14:00h), Picasso y Pompidou (tardes).</li>
-                    <li><strong>Transporte:</strong> Todo a pie. Solo bus si vais muy lejos.</li>
-                    <li><strong>Agua:</strong> Potable del grifo (sabe regular, pero es gratis).</li>
-                </ul>
-            </div>
+        <div class="day-card">
+            <h3>
+                <span>Sábado 7: Ruinas y Despedida</span>
+            </h3>
+            <ul>
+                <li><strong>Mañana:</strong> Bus a <strong>Medina Azahara</strong> (3€). Entrada yacimiento gratis. Salida bus: Paseo de la Victoria.</li>
+                <li><strong>14:30:</strong> Comida en el piso (ahorro).</li>
+                <li><strong>Tarde:</strong> Paseo por la Plaza del Potro, barrio de la Axerquía y Templo Romano.</li>
+                <li><strong>Noche:</strong> Cena de despedida (Rabo de Toro).</li>
+            </ul>
+            <a href="https://www.google.com/maps/dir/Plaza+de+la+Corredera,+Pl.+de+la+Corredera,+8,+Centro,+Centro,+14002+C%C3%B3rdoba/Pl.+del+Potro,+s%2Fn,+Centro,+14003+C%C3%B3rdoba/Templo+Romano+de+C%C3%B3rdoba,+C.+Capitulares,+1,+Centro,+14002+C%C3%B3rdoba/Taberna+G%C3%B3ngora,+C.+Conde+de+Torres+Cabrera,+4,+Centro,+14001+C%C3%B3rdoba/@37.8837389,-4.7781745,17z/data=!3m1!4b1!4m26!4m25!1m5!1m1!1s0xd6d1f7dde8d07a9:0xf0d3c945e71c27cb!2m2!1d-4.7745774!2d37.883658!1m5!1m1!1s0xd6d20825fcb32f3:0x1b1140d30fbe1b0b!2m2!1d-4.773516!2d37.8812239!1m5!1m1!1s0xd6d1f7c518a596b:0x7a65061b3a8c0202!2m2!1d-4.7766068!2d37.8845233!1m5!1m1!1s0xd6d1fcf3e8e3d53:0x84f9504151fd05a2!2m2!1d-4.7770851!2d37.886027!3e2?entry=ttu&g_ep=EgoyMDI1MDExNS.MD--&authuser=0" target="_blank" class="map-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Ver Ruta Sábado
+            </a>
+        </div>
 
-            <div class="day-card">
-                <h3>Día 1: Jueves 5 - Aterrizaje y Mar</h3>
-                <ul>
-                    <li><strong>Tarde:</strong> Calle Larios y Plaza de la Constitución.</li>
-                    <li><strong>Visita:</strong> Catedral ("La Manquita") por fuera y Plaza del Obispo.</li>
-                    <li><strong>Extra añadido:</strong> <strong>Mercado de la Merced</strong> (para ver ambiente gourmet) y paseo por la <strong>Plaza de Uncibay</strong>.</li>
-                    <li><strong>Atardecer:</strong> Muelle Uno hasta La Farola.</li>
-                </ul>
-            </div>
+        <div class="day-card">
+            <h3>Domingo 8: Vuelta a casa</h3>
+            <ul>
+                <li><strong>Mañana:</strong> Último paseo (zona Mezquita sin gente).</li>
+                <li><strong>10:00:</strong> Compra de souvenirs (aceite/imán).</li>
+                <li><strong>11:30:</strong> Salida del alojamiento.</li>
+            </ul>
+        </div>
 
-            <div class="day-card">
-                <h3>Día 2: Viernes 6 - Alturas y Parques</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Teatro Romano (mirador calle Alcazabilla).</li>
-                    <li><strong>Mediodía:</strong> Subida a pie a <strong>Gibralfaro</strong> <span class="badge-free">Vistas Gratis</span>.</li>
-                    <li><strong>Extra añadido:</strong> <strong>Cementerio Inglés</strong> (muy cerca de la plaza de toros, entrada barata y es un sitio super curioso y bonito) o pasear por los Jardines de Pedro Luis Alonso (rosaleda).</li>
-                    <li><strong>Tarde:</strong> Parque de Málaga (tropical).</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 3: Sábado 7 - Soho y Pedregalejo</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Mercado de Atarazanas (vidriera).</li>
-                    <li><strong>Mediodía:</strong> Barrio del Soho (Arte urbano MAUS).</li>
-                    <li><strong>Extra añadido:</strong> Si os gusta andar, id hasta <strong>La Térmica</strong> (centro cultural moderno, suele tener expos gratis) o simplemente relajaos en la Malagueta.</li>
-                    <li><strong>Atardecer:</strong> Paseo marítimo hasta <strong>Pedregalejo</strong> (Barrio pescadores). Cenar espetos allí.</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <h3>Día 4: Domingo 8 - Historia Gratis</h3>
-                <ul>
-                    <li><strong>Mañana:</strong> Compras souvenir.</li>
-                    <li><strong>14:00h (Clave):</strong> <strong>Alcazaba GRATIS</strong>.</li>
-                    <li><strong>Extra añadido:</strong> <strong>Museo de Málaga</strong> (Palacio de la Aduana). Es enorme, precioso y gratis para ciudadanos UE. Está justo enfrente de la Alcazaba.</li>
-                </ul>
-            </div>
-
-            <div class="food-box">
-                <h3>🍽️ Dónde comer (Málaga)</h3>
-                <p><strong>El Campero:</strong> Bocadillo redondo gigante (Mendivil/Valderrama). 5-6€.</p>
-                <p><strong>Espetos:</strong> Sardinas a la brasa en Pedregalejo (3-5€).</p>
-                <p><strong>Pizza/Picnic:</strong> Pizza "Terra Mia" o picnic en el Parque.</p>
-            </div>
+        <div class="food-box">
+            <h3>🍽️ Plan Gastronómico Especial</h3>
+            <p><strong>Día de Tortilla:</strong> Comeremos un pincho en el <strong>Bar Santos</strong> (frente a la Mezquita).</p>
+            <p><strong>La recomendación VIP:</strong> Otro día iremos a ese <em>"sitio bueno bueno"</em> que conoce Adrián.</p>
         </div>
 
     </div>
 
-    <script>
-        function showTrip(tripId) {
-            // Ocultar todas las secciones
-            document.querySelectorAll('.trip-section').forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Desactivar todos los botones
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Activar sección y botón seleccionado
-            document.getElementById(tripId).classList.add('active');
-            
-            // Encontrar el botón correspondiente y activarlo
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => {
-                if(btn.getAttribute('onclick').includes(tripId)) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Scroll suave al inicio del contenedor
-            document.querySelector('.container').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-    </script>
 </body>
 </html>
